@@ -20,11 +20,11 @@ unzip("dataset.zip", exdir ="dataset")
 setwd("~/R/Getting and Cleaning Data Class/Class Project/dataset/UCI HAR Dataset")
 
 # Load data files x_test.txt and x_train.txt in order to create a combined primary dataset
-x_test <- read.table("~/R/Getting and Cleaning Data Class/Class Project/dataset/UCI HAR Dataset/test/X_test.txt", quote="\"")
-x_train <- read.table("~/R/Getting and Cleaning Data Class/Class Project/dataset/UCI HAR Dataset/train/X_train.txt", quote="\"")
+x_test <- read.table("test/X_test.txt", quote="\"")
+x_train <- read.table("train/X_train.txt", quote="\"")
 
 # Load features.txt to be used to generate the labels for the primary dataset
-features <- read.table("~/R/Getting and Cleaning Data Class/Class Project/dataset/UCI HAR Dataset/features.txt", quote="\"", stringsAsFactors=FALSE)
+features <- read.table("features.txt", quote="\"", stringsAsFactors=FALSE)
 
 # Subset the variable name and transpose the column into a row so they can be passed to the colnames function
 labels <- t(features[2])
@@ -48,11 +48,11 @@ keep_cols <- grep("mean|std", labels)
 all_data <- all_data[,keep_cols]
 
 # Load data files y_test.txt and y_train.txt in order to create a combined activity column
-y_test <- read.table("~/R/Getting and Cleaning Data Class/Class Project/dataset/UCI HAR Dataset/test/y_test.txt", quote="\"")
-y_train <- read.table("~/R/Getting and Cleaning Data Class/Class Project/dataset/UCI HAR Dataset/train/y_train.txt", quote="\"")
+y_test <- read.table("test/y_test.txt", quote="\"")
+y_train <- read.table("train/y_train.txt", quote="\"")
 
 # Load activity_labels.txt to be used to add a  descriptive activity name to the data in the column
-activity_labels <- read.table("~/R/Getting and Cleaning Data Class/Class Project/dataset/UCI HAR Dataset/activity_labels.txt", quote="\"")
+activity_labels <- read.table("activity_labels.txt", quote="\"")
 
 # Use a for loop to cycle through the y_test and y_train data files and replace the activity indicator with the activity name
 # 3. Uses descriptive activity names to name the activities in the data set
@@ -76,8 +76,8 @@ rm(y_test)
 rm(y_train)
 
 # Load data files subject_test.txt and subject_train.txt in order to create a combined subject column
-subject_test <- read.table("~/R/Getting and Cleaning Data Class/Class Project/dataset/UCI HAR Dataset/test/subject_test.txt", quote="\"")
-subject_train <- read.table("~/R/Getting and Cleaning Data Class/Class Project/dataset/UCI HAR Dataset/train/subject_train.txt", quote="\"")
+subject_test <- read.table("test/subject_test.txt", quote="\"")
+subject_train <- read.table("train/subject_train.txt", quote="\"")
 
 # Apply a label to the subject columns to facilitate row binding and meet the required of the assignment
 # 4. Appropriately labels the data set with descriptive variable names.
@@ -119,4 +119,3 @@ result <- dcast(all_melt, Volunteer + Activity ~ variable, mean)
 # Write out the second tidy dataset as required by the assignment
 # 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 write.table(result, file = "tidy_dataset2.txt", row.names = FALSE)
-
