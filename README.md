@@ -83,4 +83,5 @@ I have commented the run_analysis.R source code to help identify where the proje
         + Variables Utilized in run_analysis.R
         + Data Transformations
         + Program Output
+        + Original Dataset README.txt (original codebook)
 
