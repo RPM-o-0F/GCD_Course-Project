@@ -6,8 +6,13 @@ This is the repository for the Getting & Cleaning Data Course Project.
 
 The purpose of the project is to demonstrate the ability to collect and prepare specified data into a tidy data format that is more descriptive and can be used for later analysis.
 
-This project utilizes the following dataset:
+**This project utilizes the following dataset:**
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+ 
+**The program expects the following directory structure is available to download and extract the working files.**
+
+* **~/R/Getting and Cleaning Data Class/Class Project**
+    + destination for file download and extraction
 
 ### From the Project Requirements:
 
