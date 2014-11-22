@@ -1,7 +1,5 @@
----
-title: "Project Codebook"
-output: html_document
----
+CodeBook.md
+==================
 ### Required Libraries
 * **reshape2**
 
@@ -23,7 +21,7 @@ In order of program execution
 * **/test/X_test.txt**
     + This file represents the 30% of the overall measurements data that was partitioned as test data
 * **/train/X_train.txt**
-    + This file represents the 70% of the overall measurements data that was partioned as train data
+    + This file represents the 70% of the overall measurements data that was partitioned as train data
 * **features.txt**
     + This file contains a list of all of the variables of the measurement data
 * **/test/y_test.txt**
@@ -64,7 +62,7 @@ In order of program execution
     + 10999 observations - final state
     + 81 variables - final state
 * **keep_cols**
-    + intiger vector used to hold subset of column names containing mean and std
+    + integer vector used to hold subset of column names containing mean and std
 * **y_test**
     + temporary data frame to hold y_test.txt data
     + 2947 observations
@@ -73,7 +71,7 @@ In order of program execution
     + temporary data frame to hold y_train.txt data
     + 7352 observations
     + 1 variable
-* **activitiy_labels**
+* **activity_labels**
     + descriptive activity names
     + 6 observations
     +2 variables
@@ -90,7 +88,7 @@ In order of program execution
 * **volunteer**
     + combined subject column
 * **id_labels**
-    + defined for use as id arument in melt function
+    + defined for use as id argument in melt function
     + identification of labels to be removed from entire list of column names
 * **column_labels**
     + defined for use as measures argument in melt function
@@ -101,7 +99,7 @@ In order of program execution
     + 4 variables
 * **result**
     + final data frame
-    + 180 oberservations
+    + 180 observations
     + 81 variables
    
    
@@ -138,11 +136,11 @@ In order of program execution
 * **all_data <- cbind(activity, all_data)**
     + adding activity column to all_data data frame via column bind
 * **all_data <- cbind(volunteer, all_data)**
-    + additng volunteer column to all_data data frame via column bind
+    + adding volunteer column to all_data data frame via column bind
 * **all_melt <- melt(all_data, id = id_labels, measure.vars = column_labels)**
     + melt of all_data using id of volunteer and activity and measure variables of all other columns in the previously subsetted data set
 * **result <- dcast(all_melt, Volunteer + Activity ~ variable, mean)**
-    + recasting of data using mean function agains variables defined in melt function
+    + recasting of data using mean function against variables defined in melt function
 
 
    
@@ -162,5 +160,3 @@ In order of program execution
     + no units have changed
     + uploaded as required in step 5 of the project
     + 261.4 KB
-   
-    
